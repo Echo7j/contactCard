@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Card</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("form").submit(function(){
+      console.log($(this).serialize())
+      var first = $('[name="firstName"]').val();
+      var last = $('[name="lastName"]').val();
+      var Description = $('[name="description"]').val();
+      $('#b').append(`<div class="Card">
+          <h2>${first + " " + last}</h2>
+          <p>${Description}</p>
+        </div>`)
+        $('[name="firstName"], [name="lastName"], [name="description"]').val("");
+      return false;
+    })
+    $(document).on('click', '.Card', function(){
+      $(this).children('p').slideToggle();
+      return false;
+    })
+  })
+</script>
+</head>
+<body>
+
+
+
+
+
+<div class="wrapper">
+  <div class="box" id= "a">
+    <form class="user" id= "f1"action="index.html" method="post">
+            <h3>Add Contact Card</h3>
+            <label>First Name:<input type="text" name="firstName"></label>
+            <label>Last Name:<input type="text" name="lastName"></label>
+            <label>Description:<input type="text" name="description"></label>
+            <label><input type="submit" name="addUser" value="Add User"></label>
+    </form>
+  </div>
+  <div class="box" id="b">
+
+
+  <!-- </div>
+  <div class="box" id= "c">
+
+
+  </div>
+  <div class="box " id= "d"> -->
+
+
+  </div>
+</div>
+
+</body>
+</html>
